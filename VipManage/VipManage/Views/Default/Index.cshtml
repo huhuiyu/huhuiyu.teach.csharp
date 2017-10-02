@@ -1,0 +1,278 @@
+﻿@{
+    Layout = "~/_LayoutMain.cshtml";
+}
+@section js{
+    <script src="~/Scripts/app/dialog.js"></script>
+    <script src="~/Scripts/app/Default.js"></script>
+}
+<!-- 对话框 -->
+<!-- 等待对话框 -->
+<div id="waitDialog" class="modal"
+    data-backdrop="static" data-keyboard="false"
+    tabindex="-1" role="dialog" style="z-index: 1999;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"
+                    id="waitTitle"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="waitBody"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确定对话框  -->
+<div id="alertDialog" class="modal"
+    data-backdrop="static" data-keyboard="false"
+    tabindex="-1" role="dialog" style="z-index: 1990;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true
+                        ">&times;</span>
+                </button>
+                <h4 class="modal-title"
+                    id="alertTitle"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="alertBody"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                    class="btn btn-primary"
+                    data-dismiss="modal">
+                    确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认对话框 -->
+<div id="confirmDialog" class="modal"
+    data-backdrop="static" data-keyboard="false"
+    tabindex="-1" role="dialog" style="z-index: 1989;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true
+                        ">&times;</span>
+                </button>
+                <h4 class="modal-title"
+                    id="confirmTitle"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="confirmBody"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                    class="btn btn-primary"
+                    id="btnConfirmYes">
+                    确定</button>
+                <button type="button"
+                    class="btn btn-danger"
+                    id="btnConfirmNo">
+                    取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 非公用的对话框，修改信息对话框 -->
+<div id="modifyDialog" class="modal"
+    data-backdrop="static" data-keyboard="false"
+    tabindex="-1" role="dialog" style="z-index: 1970;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true
+                        ">&times;</span>
+                </button>
+                <h4 class="modal-title">修改会员</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"
+                            >会员名</span>
+                        <input type="text"
+                            id="MUsername" 
+                            class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"
+                            >电话</span>
+                        <input type="text"
+                            id="MPhone" 
+                            class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"
+                            >卡号</span>
+                        <input type="text"
+                            id="MCardno" 
+                            class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"
+                            >余额</span>
+                        <input type="text"
+                            id="MBalance" 
+                            class="form-control"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                    class="btn btn-primary"
+                    id="btnModify">
+                   保存</button>
+                <button type="button"
+                    class="btn btn-danger"
+                    id="btnMCancel">
+                    取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 对话框结束 -->
+<input type="hidden" id="MVcid"/>
+<div class="h1 text-center text-primary">
+    <h1>会员管理</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 hidden-xs"></div>
+        <div class="col-sm-4 col-xs-12">
+            <h1>添加会员卡</h1>
+
+            <div class="form-group">
+                <label>会员姓名</label>
+                <input type="text" id="txtUsername"
+                    class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>会员电话</label>
+                <input type="text" id="txtPhone"
+                    class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>会员卡号</label>
+                <input type="text" id="txtCardno"
+                    class="form-control" />
+            </div>
+            <!--txtUsername,txtPhone,txtCardno,txtBalance -->
+            <div class="form-group">
+                <label>充值金额</label>
+                <input type="text" id="txtBalance"
+                    class="form-control" />
+            </div>
+            <div class="text-center">
+                <span class="btn btn-primary"
+                    id="btnAdd">添加
+                </span>
+                <span class="btn btn-danger"
+                    id="btnReset">重置
+                </span>
+            </div>
+
+
+
+
+        </div>
+        <div class="col-sm-4 hidden-xs"></div>
+
+        <div class="col-xs-12">
+            <div id="divData">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">会员姓名
+                            </span>
+                            <input type="text" id="txtQUsername"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">会员电话
+                            </span>
+                            <input type="text" id="txtQPhone"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">分页大小
+                            </span>
+                            <select id="pageSize">
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span id="spPageInfo" class="bg-primary"></span>
+                    <span class="btn btn-primary" id="btnPre">上一页</span>
+                    <span class="btn btn-primary" id="btnNext">下一页</span>
+                    <span class="btn btn-primary" id="btnQuery">查询</span>
+                    <span class="btn btn-primary"
+                        id="btnQueryReset">重置</span>
+                    <span class="btn btn-primary"
+                        id="btnDelAll">
+                        删除选中
+                    </span>
+                </div>
+
+                <div class="jumbotron" id="divNodata">
+                    <h1 class="text-center">查无数据</h1>
+                </div>
+
+                <table id="tbData" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="chkAll" />
+                            </th>
+                            <th>会员名</th>
+                            <th>电话</th>
+                            <th>卡号</th>
+                            <th>余额</th>
+                            <th>开卡日期</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbDataBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+

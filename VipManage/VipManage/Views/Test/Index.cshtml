@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/_LayoutMain.cshtml";   
+}
+@section js{
+    <script src="~/Scripts/app/test.js"></script>
+}
+<div class="h1 text-center bg-primary">
+    演示页面
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 hidden-sm"></div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="input-group">
+<span class="input-group-addon">消息</span>
+<input type="text" id="txtEcho" class="form-control"/>
+<span class="input-group-addon btn btn-default"
+    id="btnEcho">发送</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+<span class="input-group-addon">测试信息</span>
+<input type="text" id="txtTinfo" class="form-control"/>
+<span class="input-group-addon btn btn-default"
+    id="btnAdd">添加</span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <span id="btnDatabase"
+                    class="btn btn-primary">数据库</span>
+            </div>
+        </div>
+        <div class="col-md-4 hidden-sm"></div>
+    </div>
+</div>
