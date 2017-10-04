@@ -1,0 +1,9 @@
+﻿.dialog .modal-header {
+    background-color: red;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.dialog .modal-content {
+    border-radius: 10px;
+}

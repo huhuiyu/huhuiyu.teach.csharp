@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/_LayoutMain.cshtml";
+}
+
+@section js{
+    <script src="~/Scripts/app/test.js"></script>
+}
+@section style{
+    <link href="~/Content/app/dialog.css" rel="stylesheet" />
+}
+<div>
+    <div id="customEl" style="display: none;">
+        定制对话框信息<hr />
+        <div class="text-center">
+            <span class="btn btn-primary" id="btnCloseDialog">关闭对话框</span>
+        </div>
+    </div>
+</div>
+<div class="h3 text-center">
+
+    <span class="btn btn-primary" id="btnDialog">标准对话框</span>
+    <span class="btn btn-primary" id="btnCustomDialog">订制对话框</span>
+
+</div>
