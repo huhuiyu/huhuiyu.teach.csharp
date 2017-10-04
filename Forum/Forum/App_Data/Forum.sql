@@ -49,7 +49,7 @@ create table TbUser
 )
 go
 
-insert into TbUser(username,password,nickname,isAdmin) values('admin','mamager','内置管理员','y')
+insert into TbUser(username,password,nickname,isAdmin) values('admin','manager','内置管理员','y')
 go
 
 select * from TbUser

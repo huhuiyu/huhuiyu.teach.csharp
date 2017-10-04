@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace VipManage.Models
+namespace Forum.Models
 {
     //基础Model类
     public class BaseModel
@@ -16,6 +16,8 @@ namespace VipManage.Models
         //服务器给客户端的消息
         public string ServerMessage { get; set; }
 
+        //登陆的用户信息
+        public IDictionary<string, object> UserInfo { get; set; }
 
         public BaseModel()
         {

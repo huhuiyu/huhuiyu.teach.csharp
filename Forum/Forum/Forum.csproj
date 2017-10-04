@@ -104,11 +104,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\data\DataAdminController.cs" />
+    <Compile Include="Controllers\page\AdminController.cs" />
     <Compile Include="Controllers\page\DefaultController.cs" />
     <Compile Include="Controllers\page\TestController.cs" />
+    <Compile Include="Dal\Entity\Page.cs" />
+    <Compile Include="Dal\Util\DBConn.cs" />
+    <Compile Include="Dal\Util\DBHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,11 +122,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\Forum.sql" />
+    <Content Include="Content\app\dialog.css" />
+    <Content Include="Content\app\admin.css" />
     <Content Include="Content\lib\css\bootstrap.min.css" />
     <Content Include="Content\lib\css\font-awesome.min.css" />
     <Content Include="Content\lib\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\lib\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\admin\index.js" />
     <Content Include="Scripts\app\dialog.js" />
     <Content Include="Scripts\app\index.js" />
     <Content Include="Scripts\app\test.js" />
@@ -136,8 +146,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\data\" />
+    <Content Include="Views\Admin\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -161,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Test\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Common\ViewUserInfo.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
