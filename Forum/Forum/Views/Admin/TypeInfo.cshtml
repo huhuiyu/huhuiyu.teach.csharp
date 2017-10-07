@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/_LayoutMain.cshtml";
+}
+@section js{
+    <script src="~/Scripts/app/admin/typeinfo.js"></script>
+}
+<div class="h100 no-scroll">
+    <div>@RenderPage("~/Views/Common/ViewUserInfo.cshtml")</div>
+
+    <div id="divModify" style="display: none;">
+        <input type="hidden" id="txtMTid" />
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">分类名称</span>
+                <input type="text" id="txtMTname" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">分类描述</span>
+                <input type="text" id="txtMTinfo" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">分类描述</span>
+                <select id="txtMIsEnable" class="form-control">
+                    <option value="y">启用中</option>
+                    <option value="n">停用中</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+        <div class="text-center pd-5">
+            <span class="btn btn-primary" id="btnSave">保存</span>
+            <span class="btn btn-primary" id="btnCancel">取消</span>
+        </div>
+    </div>
+
+    <div class="h100">
+        <div class="pull-left wl bg-info h100">
+            @RenderPage("~/Views/Common/ViewMenu.cshtml")
+        </div>
+        <div class="pull-left wr">
+            <h1 class="text-center">分类管理</h1>
+            <div class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">分类名称</span>
+                        <input type="text" id="txtTname" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">分类描述</span>
+                        <input type="text" id="txtTinfo" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span id="btnAdd" class="btn btn-primary">添加</span>
+                    <span id="btnReset" class="btn btn-primary">重填</span>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>分类名称</th>
+                        <th>分类描述</th>
+                        <th>启用状态</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="tbTypes"></tbody>
+            </table>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

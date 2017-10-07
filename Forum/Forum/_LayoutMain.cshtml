@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>论坛</title>
     <link href="~/Content/lib/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/app/app.css" rel="stylesheet" />
     @RenderSection("style", false)
 
     <script src="~/Scripts/lib/jquery.min.js"></script>
@@ -20,7 +20,7 @@
         <!-- 自定义元素对话框 -->
         <div id="customDialog" class="modal"
             data-backdrop="static" data-keyboard="false"
-            tabindex="-1" role="dialog" style="z-index: 1999;">
+            tabindex="-1" role="dialog" style="z-index: 1980;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -115,7 +115,7 @@
 
     </div>
     <!-- 公用对话框 -->
-    <div>
+    <div class="h100">
         @RenderBody()
     </div>
 </body>

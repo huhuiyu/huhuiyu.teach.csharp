@@ -1,0 +1,32 @@
+﻿html, body {
+    height: 100%;
+}
+
+.wl {
+    width: 20%;
+}
+
+.wr {
+    width: 80%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.alert {
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}

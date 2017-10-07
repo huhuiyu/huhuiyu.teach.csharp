@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\data\DataAdminController.cs" />
+    <Compile Include="Controllers\data\DataTypeController.cs" />
     <Compile Include="Controllers\page\AdminController.cs" />
     <Compile Include="Controllers\page\DefaultController.cs" />
     <Compile Include="Controllers\page\TestController.cs" />
@@ -116,6 +117,7 @@
     </Compile>
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,12 +127,14 @@
     <Content Include="App_Data\Forum.sql" />
     <Content Include="Content\app\dialog.css" />
     <Content Include="Content\app\admin.css" />
+    <Content Include="Content\app\app.css" />
     <Content Include="Content\lib\css\bootstrap.min.css" />
     <Content Include="Content\lib\css\font-awesome.min.css" />
     <Content Include="Content\lib\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\lib\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\admin\index.js" />
+    <Content Include="Scripts\app\admin\typeinfo.js" />
     <Content Include="Scripts\app\dialog.js" />
     <Content Include="Scripts\app\index.js" />
     <Content Include="Scripts\app\test.js" />
@@ -176,6 +180,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Common\ViewUserInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Common\ViewMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\UserInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\TypeInfo.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

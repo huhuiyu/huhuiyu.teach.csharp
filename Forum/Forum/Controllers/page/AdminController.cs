@@ -25,5 +25,23 @@ namespace Forum.Controllers.page
             return View(m);
         }
 
+
+        public ActionResult UserInfo(AdminModel m)
+        {
+            if (DataAdminController.CheckUser(Session, m)) //没有用户信息就跳转到登陆
+            {
+                return RedirectToAction("Index");
+            }
+            return View(m);
+        }
+
+        public ActionResult TypeInfo(AdminModel m)
+        {
+            if (DataAdminController.CheckUser(Session, m)) //没有用户信息就跳转到登陆
+            {
+                return RedirectToAction("Index");
+            }
+            return View(m);
+        }
     }
 }
