@@ -107,6 +107,7 @@
     <Compile Include="Controllers\data\DataAdminController.cs" />
     <Compile Include="Controllers\data\DataTypeController.cs" />
     <Compile Include="Controllers\data\DataDefaultController.cs" />
+    <Compile Include="Controllers\data\DataSubjectController.cs" />
     <Compile Include="Controllers\page\AdminController.cs" />
     <Compile Include="Controllers\page\DefaultController.cs" />
     <Compile Include="Controllers\page\TestController.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Models\DefaultModel.cs" />
+    <Compile Include="Models\SubjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\admin\index.js" />
     <Content Include="Scripts\app\admin\typeinfo.js" />
+    <Content Include="Scripts\app\admin\subject.js" />
     <Content Include="Scripts\app\dialog.js" />
     <Content Include="Scripts\app\index.js" />
     <Content Include="Scripts\app\test.js" />
@@ -192,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\TypeInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Subject.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

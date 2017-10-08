@@ -55,11 +55,11 @@ go
 select * from TbUser
 go
 
-
 create table TbInfo
 (
 	iid int identity primary key not null,
 	uid int foreign key references TbUser(uid) not null,
+	sid int foreign key references TbSubject(sid) not null,
 	title nvarchar(50) not null,
 	info  nvarchar(500) not null,
 	isDelete char(1) check(isDelete in ('y','n')) default 'n' not null,
