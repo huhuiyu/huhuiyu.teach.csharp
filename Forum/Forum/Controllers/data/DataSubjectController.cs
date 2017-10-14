@@ -24,6 +24,16 @@ namespace Forum.Controllers.data
 
         public const string MODIFY = @"update TbSubject set sname=@p0,sinfo=@p1,isEnable=@p2,tid=@p3 where sid=@p4";
 
+        public const string QUERY_BY_TYPE =
+        @"select sid,sname,sinfo,isEnable
+    ,CONVERT(varchar(50),createDate,120) 'createDate'
+    from TbSubject where isEnable='y' and tid=@p0";
+
+        public const string QUERY_BY_SID =
+        @"select sid,sname,sinfo,isEnable
+    ,CONVERT(varchar(50),createDate,120) 'createDate'
+    from TbSubject where isEnable='y' and sid=@p0";
+
         public ActionResult Index(SubjectMode m)
         {
             try
@@ -83,5 +93,35 @@ namespace Forum.Controllers.data
             return Json(m);
         }
 
+
+        public ActionResult QueryByType(SubjectMode m)
+        {
+            try
+            {
+                m.SubjectList = DBHelper.QueryDicRows(
+                    QUERY_BY_TYPE, m.Tid);
+                m.Success = true;
+            }
+            catch (Exception ex)
+            {
+                m.Fail(ex);
+            }
+            return Json(m);
+        }
+
+        public ActionResult QueryBySid(SubjectMode m)
+        {
+            try
+            {
+                m.Subject = DBHelper.QueryOneDicRow(
+                    QUERY_BY_SID, m.Sid);
+                m.Success = true;
+            }
+            catch (Exception ex)
+            {
+                m.Fail(ex);
+            }
+            return Json(m);
+        }
     }
 }

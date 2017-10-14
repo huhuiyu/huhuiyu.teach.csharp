@@ -110,6 +110,7 @@
     <Compile Include="Controllers\data\DataSubjectController.cs" />
     <Compile Include="Controllers\page\AdminController.cs" />
     <Compile Include="Controllers\page\DefaultController.cs" />
+    <Compile Include="Controllers\page\SubjectController.cs" />
     <Compile Include="Controllers\page\TestController.cs" />
     <Compile Include="Dal\Entity\Page.cs" />
     <Compile Include="Dal\Util\DBConn.cs" />
@@ -144,6 +145,7 @@
     <Content Include="Scripts\app\dialog.js" />
     <Content Include="Scripts\app\index.js" />
     <Content Include="Scripts\app\test.js" />
+    <Content Include="Scripts\app\subject.js" />
     <Content Include="Scripts\lib\bootstrap.min.js" />
     <Content Include="Scripts\lib\jquery.min.js" />
     <Content Include="Web.config" />
@@ -199,6 +201,9 @@
   <ItemGroup>
     <Content Include="Views\Admin\Subject.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Subject\Index.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -215,7 +220,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>4785</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:3050/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

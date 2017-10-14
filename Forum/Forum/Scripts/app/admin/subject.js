@@ -39,6 +39,7 @@
     }
 
     $("#btnAdd").click(function () {
+        $("#txtIsEnable").val("y");
         Dialog.showCustomDialog($("#divModify"), "主题管理-添加");
     });
 
