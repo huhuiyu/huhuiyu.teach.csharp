@@ -16,6 +16,7 @@ namespace Forum.Models
 
         public IList<IDictionary<string, object>> TypeList { get; set; }
         public IList<IDictionary<string, object>> SubjectList { get; set; }
+        public IList<IDictionary<string, object>> InfoList { get; set; }
         public IDictionary<string, object> Subject { get; set; }
 
         public Page PageInfo { get; set; }

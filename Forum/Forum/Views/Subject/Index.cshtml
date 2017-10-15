@@ -4,4 +4,52 @@
 @section js{
     <script src="~/Scripts/app/subject.js"></script>
 }
-<div class="text-center bg-primary"><span class="h2" id="divSubject"></span></div>
+<div class="text-center bg-primary">
+    <div class="pull-right">
+        <span class="btn btn-danger"
+            onclick="location='/'">返回</span>
+    </div>
+    <span class="h2" id="divSubject"></span>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>帖子</th>
+            <th>内容</th>
+            <th>作者</th>
+            <th>发帖时间</th>
+        </tr>
+    </thead>
+    <tbody id="tbInfos"></tbody>
+</table>
+<div class="text-center">
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a href="javascript:void(0)" id="btnPre">
+                    <span>&laquo;</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="btnFirst">
+                    <span>第一页</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <span id="spPageInfo"></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="btnLast">
+                    <span>最后一页</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="btnNext">
+                    <span>&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

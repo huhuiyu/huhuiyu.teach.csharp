@@ -20,6 +20,22 @@ namespace Forum.Controllers.data
  (select top {1} sid from TbSubject)";
         public const string QUERY_COUNT = @"select count(*) from TbSubject";
 
+        public const string QUERY_INFO = @"select top {0} i.iid,i.title,LEFT(i.info,15)+'...' 'info',
+ convert(varchar(50),i.createDate,120) createDate,
+ u.nickname
+ from TbInfo i
+ inner join TbUser u on i.uid=u.uid
+ where i.isDelete='n' and i.sid=@p0
+ and i.iid not in (
+ select top {1} iid from TbInfo
+  where isDelete='n' and sid=@p0 
+  order by createDate desc  )
+ order by i.createDate desc";
+
+        public const string QUERY_INFO_COUNT =
+@"select count(*) from TbInfo
+  where isDelete='n' and sid=@p0";
+
         public const string ADD = @"insert into TbSubject(sname,sinfo,tid) values(@p0,@p1,@p2)";
 
         public const string MODIFY = @"update TbSubject set sname=@p0,sinfo=@p1,isEnable=@p2,tid=@p3 where sid=@p4";
@@ -115,6 +131,11 @@ namespace Forum.Controllers.data
             {
                 m.Subject = DBHelper.QueryOneDicRow(
                     QUERY_BY_SID, m.Sid);
+                m.PageInfo.Count = (int)DBHelper.QueryOne(QUERY_INFO_COUNT
+                    , m.Sid);
+                m.Sname = "" + m.PageInfo.Count;
+                m.InfoList = DBHelper.QueryDicRows(
+string.Format(QUERY_INFO, m.PageInfo.PageSize, m.PageInfo.Skip), m.Sid);
                 m.Success = true;
             }
             catch (Exception ex)
