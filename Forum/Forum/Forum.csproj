@@ -124,6 +124,7 @@
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\InfoModel.cs" />
+    <Compile Include="Models\ReturnsModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Models\DefaultModel.cs" />
     <Compile Include="Models\SubjectModel.cs" />
