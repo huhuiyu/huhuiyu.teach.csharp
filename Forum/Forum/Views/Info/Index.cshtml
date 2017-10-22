@@ -4,4 +4,22 @@
 @section js{
     <script src="~/Scripts/app/info.js"></script>
 }
-<h2>帖子详情</h2>
+@RenderPage("~/Views/Common/ViewUser.cshtml")
+<div class="text-right">
+    <a href="javascript:history.back();">返回</a>
+</div>
+<div class="pd-5 mr-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <div id="divTypeInfo" class="text-center"></div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div id="divInfo"></div>
+        </div>
+        <div class="panel-footer">
+            <div id="divCreateDate" class="text-right"></div>
+        </div>
+    </div>
+</div>

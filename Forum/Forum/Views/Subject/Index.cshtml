@@ -5,9 +5,30 @@
     <script src="~/Scripts/app/subject.js"></script>
 }
 @RenderPage("~/Views/Common/ViewUser.cshtml")
+<div>
+    <div id="dialogAddInfo" style="display: none;">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">标题</span>
+                <input type="text" id="txtTitle" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">内容</span>
+                <textarea id="txtInfo" class="form-control"
+                    cols="80" rows="4"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="btn btn-primary" id="btnAddInfo">发布</span>
+            <span class="btn btn-primary" id="btnCancel">取消</span>
+        </div>
+    </div>
+</div>
 <div class="text-center bg-primary">
     <div class="pull-right">
-        <span class="btn btn-danger" id="btnAddInfo">我要发帖</span>
+        <span class="btn btn-danger" id="btnToAddInfo">我要发帖</span>
         <span class="btn btn-danger"
             onclick="location='/'">返回</span>
     </div>

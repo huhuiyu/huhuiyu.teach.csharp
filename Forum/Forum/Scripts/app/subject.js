@@ -80,12 +80,42 @@
         }, "json");
     }
 
-    $("#btnAddInfo").click(function () {
+    $("#btnToAddInfo").click(function () {
         if (!window.UserIsLogin) {
             Dialog.showAlertDialog("请先登陆", "论坛");
             return;
         }
+        Dialog.showCustomDialog($("#dialogAddInfo"), "论坛");
+    });
 
+    $("#btnAddInfo").click(function () {
+        Dialog.showWaitDialog("发布中。。。", "论坛");
+        $.post("/DataInfo/Add", {
+            "Sid": sid,
+            "Title": $("#txtTitle").val(),
+            "Info": $("#txtInfo").val()
+        }, function (data) {
+            Dialog.hideWaitDialog();
+            if (data.ServerCode == 1000) {
+                Dialog.showAlertDialog("请先登陆", "论坛", function () {
+                    location.reload();
+                });
+                return;
+            }
+            if (data.Success) {
+                Dialog.hideCustomDialog();
+                Dialog.showAlertDialog("发布成功", "论坛", function () {
+                    query();
+                });
+                return;
+            }
+            Dialog.showAlertDialog(data.ServerMessage, "论坛");
+        }, "json");
+
+    });
+
+    $("#btnCancel").click(function () {
+        Dialog.hideCustomDialog();
     });
 
     query();

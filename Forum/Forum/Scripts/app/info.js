@@ -1,36 +1,28 @@
 ﻿$(function () {
-    var PageInfo = { "PageSize": 2, "PageNumber": 1 };
-
-    function toPage(page) {
-        PageInfo.PageNumber = page;
-        query();
-    }
-
-    $("#btnPre").click(function () {
-        var page = PageInfo.PageNumber - 1;
-        if (page > 0) {
-            toPage(page);
-        }
-    });
-
-    $("#btnNext").click(function () {
-        var page = PageInfo.PageNumber + 1;
-        if (page <= PageInfo.PageCount) {
-            toPage(page);
-        }
-    });
-
-    $("#btnFirst").click(function () {
-        toPage(1);
-    });
-
-    $("#btnLast").click(function () {
-        toPage(PageInfo.PageCount);
-    });
-
-    //获取sid的信息
+    //获取iid的信息
     var queryString = location.href.substring(
         location.href.indexOf("?") + 1);
     var iid = queryString.substring(4);
-    alert(iid);
+
+    function query() {
+        Dialog.showWaitDialog("查询中。。。", "论坛");
+        $.post("/DataInfo/QueryInfo", { "Iid": iid }
+            , function (data) {
+                Dialog.hideWaitDialog();
+                if (!data.Success) {
+                    Dialog.showAlertDialog(data.ServerMessage, "论坛");
+                    return;
+                }
+                $("#divTypeInfo").html(data.InfoData.title +
+                    "(" + data.InfoData.tname + "-"
+                    + data.InfoData.sname + ")");
+
+                $("#divInfo").html(data.InfoData.info.replace(/[\r\n]/g, "<br/>"));
+                $("#divCreateDate").html(data.InfoData.nickname + "-"
+                    + data.InfoData.createdate);
+            }, "json");
+    }
+
+    query();
+
 });

@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\data\DataAdminController.cs" />
+    <Compile Include="Controllers\data\DataInfoController.cs" />
     <Compile Include="Controllers\data\DataTypeController.cs" />
     <Compile Include="Controllers\data\DataDefaultController.cs" />
     <Compile Include="Controllers\data\DataSubjectController.cs" />
@@ -122,6 +123,7 @@
     </Compile>
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\InfoModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Models\DefaultModel.cs" />
     <Compile Include="Models\SubjectModel.cs" />
