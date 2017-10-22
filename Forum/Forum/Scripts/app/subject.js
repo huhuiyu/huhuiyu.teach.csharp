@@ -80,5 +80,13 @@
         }, "json");
     }
 
+    $("#btnAddInfo").click(function () {
+        if (!window.UserIsLogin) {
+            Dialog.showAlertDialog("请先登陆", "论坛");
+            return;
+        }
+
+    });
+
     query();
 });

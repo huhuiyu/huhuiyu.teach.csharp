@@ -108,6 +108,7 @@
     <Compile Include="Controllers\data\DataTypeController.cs" />
     <Compile Include="Controllers\data\DataDefaultController.cs" />
     <Compile Include="Controllers\data\DataSubjectController.cs" />
+    <Compile Include="Controllers\data\DataUserController.cs" />
     <Compile Include="Controllers\page\AdminController.cs" />
     <Compile Include="Controllers\page\DefaultController.cs" />
     <Compile Include="Controllers\page\InfoController.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Models\DefaultModel.cs" />
     <Compile Include="Models\SubjectModel.cs" />
+    <Compile Include="Models\UserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Info\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Common\ViewUser.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

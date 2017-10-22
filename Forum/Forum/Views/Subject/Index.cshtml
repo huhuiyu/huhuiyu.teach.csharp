@@ -4,8 +4,10 @@
 @section js{
     <script src="~/Scripts/app/subject.js"></script>
 }
+@RenderPage("~/Views/Common/ViewUser.cshtml")
 <div class="text-center bg-primary">
     <div class="pull-right">
+        <span class="btn btn-danger" id="btnAddInfo">我要发帖</span>
         <span class="btn btn-danger"
             onclick="location='/'">返回</span>
     </div>

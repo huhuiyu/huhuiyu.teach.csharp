@@ -1,0 +1,131 @@
+﻿<div class="text-right pd-5 mr-5">
+    <div id="divUserLogin" class="form-inline">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">用户名</span>
+                <input type="text" id="txtLoginUser" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">密码</span>
+                <input type="password" id="txtLoginPwd" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="btn btn-primary" id="btnLogin">登陆</span>
+            <span class="btn btn-primary" id="btnReg">注册</span>
+        </div>
+    </div>
+    <div id="divUserLogout" style="display: none;">
+        <span id="spLoginUserInfo"></span>
+        <span class="btn btn-primary" id="btnUserLogout">安全退出</span>
+    </div>
+</div>
+<div>
+    <div id="divUserReg" style="display: none;">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">用户名</span>
+                <input type="text" id="txtRegUser" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+                <input type="password" id="txtRegPwd" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">昵&nbsp;&nbsp;&nbsp;&nbsp;称</span>
+                <input type="text" id="txtNickname" class="form-control" />
+            </div>
+        </div>
+        <div class="text-center">
+            <span class="btn btn-primary" id="btnUserReg">注册</span>
+            <span class="btn btn-primary" id="btnCancelReg">取消</span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $.post("/DataUser/GetUserInfo", {}, function (data) {
+            if (data.Success) {
+                $("#spLoginUserInfo").html("欢迎：" + data.UserInfo.nickname + "(" +
+                       data.UserInfo.username + ")");
+                $("#divUserLogin").hide();
+                $("#divUserLogout").show();
+            } else {
+                $("#divUserLogout").hide();
+                $("#divUserLogin").show();
+            }
+            window.UserIsLogin = data.Success;
+        }, "json");
+
+        $("#btnReg").click(function () {
+            Dialog.showCustomDialog($("#divUserReg"), "论坛");
+        });
+        $("#btnUserReg").click(function () {
+            Dialog.showWaitDialog("注册中。。。", "论坛");
+            $.post("/DataUser/Reg", {
+                "Username": $("#txtRegUser").val(),
+                "Password": $("#txtRegPwd").val(),
+                "Nickname": $("#txtNickname").val()
+            }, function (data) {
+                Dialog.hideWaitDialog();
+                Dialog.showAlertDialog(data.ServerMessage, "论坛", function () {
+                    if (data.Success) {
+                        Dialog.hideCustomDialog();
+                        return;
+                    }
+                    if (data.ServerCode == 501 || data.ServerCode == 504) {
+                        $("#txtRegUser").focus();
+                        return;
+                    }
+                    if (data.ServerCode == 502) {
+                        $("#txtRegPwd").focus();
+                        return;
+                    }
+                    if (data.ServerCode == 503) {
+                        $("#txtNickname").focus();
+                        return;
+                    }
+                });
+            }, "json");
+        });
+
+
+        $("#btnLogin").click(function () {
+            Dialog.showWaitDialog("登陆中。。。", "论坛");
+            $.post("/DataUser/Login", {
+                "Username": $("#txtLoginUser").val(),
+                "Password": $("#txtLoginPwd").val()
+            }, function (data) {
+                Dialog.hideWaitDialog();
+                if (data.Success) {
+                    $("#spLoginUserInfo").html("欢迎：" + data.UserInfo.nickname + "(" +
+                        data.UserInfo.username + ")");
+                    $("#divUserLogin").hide();
+                    $("#divUserLogout").show();
+                    window.UserIsLogin = true;
+                    return;
+                }
+                Dialog.showAlertDialog(data.ServerMessage, "论坛");
+                window.UserIsLogin = false;
+            }, "json");
+        });
+
+        $("#btnUserLogout").click(function () {
+            $.post("/DataUser/Logout", {}, function (data) {
+                $("#divUserLogout").hide();
+                $("#divUserLogin").show();
+                window.UserIsLogin = false;
+            }, "json");
+        });
+
+        $("#btnCancelReg").click(function () {
+            Dialog.hideCustomDialog();
+        });
+    });
+</script>
