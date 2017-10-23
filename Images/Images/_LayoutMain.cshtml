@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>我的相册</title>
+    <link href="~/Content/lib/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/app/base.css" rel="stylesheet" />
+    @RenderSection("style", false)
+    
+    <script src="~/Scripts/lib/jquery.min.js"></script>
+    <script src="~/Scripts/lib/bootstrap.min.js"></script>
+    <script src="~/Scripts/app/dialog.js"></script>
+    @RenderSection("js", false)
+
+</head>
+<body>
+    <div class="dialog">
+        <!-- 公用对话框 -->
+        <!-- 自定义元素对话框 -->
+        <div id="customDialog" class="modal"
+            data-backdrop="static" data-keyboard="false"
+            tabindex="-1" role="dialog" style="z-index: 1980;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"
+                            id="customTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="divCustomBody"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 等待对话框 -->
+        <div id="waitDialog" class="modal"
+            data-backdrop="static" data-keyboard="false"
+            tabindex="-1" role="dialog" style="z-index: 1999;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"
+                            id="waitTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="waitBody"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 确定对话框  -->
+        <div id="alertDialog" class="modal"
+            data-backdrop="static" data-keyboard="false"
+            tabindex="-1" role="dialog" style="z-index: 1990;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true
+                        ">&times;</span>
+                        </button>
+                        <h4 class="modal-title"
+                            id="alertTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="alertBody"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                            class="btn btn-primary"
+                            data-dismiss="modal">
+                            确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 确认对话框 -->
+        <div id="confirmDialog" class="modal"
+            data-backdrop="static" data-keyboard="false"
+            tabindex="-1" role="dialog" style="z-index: 1989;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true
+                        ">&times;</span>
+                        </button>
+                        <h4 class="modal-title"
+                            id="confirmTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="confirmBody"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                            class="btn btn-primary"
+                            id="btnConfirmYes">
+                            确定</button>
+                        <button type="button"
+                            class="btn btn-danger"
+                            id="btnConfirmNo">
+                            取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 公用对话框 -->
+    <div class="h100">
+        @RenderBody()
+    </div>
+</body>
+</html>
