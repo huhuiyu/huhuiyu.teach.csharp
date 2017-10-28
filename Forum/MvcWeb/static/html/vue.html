@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>web前端演示项目</title>
+    <!-- css导入要尽早，css导入是非阻塞的 -->
+    <link href="../css/lib/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid" id="divVue">
+        <div class="row">
+            <div class="col-xs-12">
+                <span :class="color">配色</span> 
+                <label><input type="radio"  name="rdColor" 
+                    :checked="color=='text-primary'"
+                    @click="changeColor('text-primary')" />primary</label>
+                <label><input type="radio" name="rdColor"
+                    :checked="color=='text-danger'"
+                    @click="changeColor('text-danger')"/>danger</label>
+                <label><input type="checkbox"
+                    @click="enstyle=!enstyle"/>启用样式</label>
+                <input type="text" :class="{'text-info h4':enstyle}" 
+                    v-model="computenums.num1" />
+                <span>*</span>
+                <input type="text" :class="{'text-info h4':enstyle}" 
+                     v-model="computenums.num2" />
+                <span>=</span><span>{{nums}}</span>
+            </div>
+            <div class="col-xs-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" :class="{'active':tab=='index'}">
+                            <a href="javascript:void(0)" @click="tab='index'">首页</a></li>
+                        <li role="presentation" :class="{'active':tab=='user'}">
+                            <a href="javascript:void(0)" @click="tab='user'">用户管理</a></li>
+                        <li role="presentation"  :class="{'active':tab=='subject'}">
+                            <a href="javascript:void(0)" @click="tab='subject'">主题管理</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane" 
+                        :class="{'active':tab=='index'}">首页</div>
+                    <div role="tabpanel" class="tab-pane"
+                        :class="{'active':tab=='user'}">用户管理</div>
+                    <div role="tabpanel" class="tab-pane"
+                        :class="{'active':tab=='subject'}">主题管理</div>
+                </div>
+                <div v-show="step==1">
+                    第一步<span class="btn btn-primary"
+                        @click="step=2">下一步</span>
+                </div>
+                <div v-show="step==2">
+                    第二步
+                    <span class="btn btn-primary"
+                        @click="step=1">上一步</span>
+                    <span class="btn btn-primary"
+                        @click="step=3">下一步</span>
+                </div>
+                 <div v-show="step==3">
+                    最后一步
+                    <span class="btn btn-primary"
+                        @click="step=2">上一步</span>                    
+                </div>
+            </div>
+            <div>
+                <input v-model="filterNumbs"/>
+                {{filterNumbs | nums}}
+                 {{filterNumbs | chars}}
+                <input v-model="filterDatas"/>
+                <table>
+                    <tr v-for="d in computelist">
+                        <td>{{d.id}}</td>
+                        <td>{{d.name}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- js导入要尽晚 -->
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
+    <script src="../js/lib/vue.min.js"></script>
+    <script src="../js/lib/angular.min.js"></script>
+    <script src="../js/app/vue.js"></script>
+
+</body>
+</html>
