@@ -64,8 +64,8 @@
             </div>
             <div>
                 <input v-model="filterNumbs"/>
-                {{filterNumbs | nums}}
-                 {{filterNumbs | chars}}
+                {{filterNumbs | nums(true)}}
+                 {{filterNumbs | nums(false)}}
                 <input v-model="filterDatas"/>
                 <table>
                     <tr v-for="d in computelist">

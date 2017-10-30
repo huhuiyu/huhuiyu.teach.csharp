@@ -19,15 +19,12 @@
                 filterDatas: ""
             },
             filters: {
-                nums: function (v) {
+                nums: function (v, mode) {
                     if (!v) {
                         return v;
                     }
-                    return v.replace(/\D/g, "");
-                },
-                chars: function (v) {
-                    if (!v) {
-                        return v;
+                    if (mode) {
+                        return v.replace(/\D/g, "");
                     }
                     return v.replace(/\d/g, "");
                 }

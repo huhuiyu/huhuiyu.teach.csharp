@@ -104,24 +104,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DataMenuController.cs" />
+    <Compile Include="Dal\DAO\TbMenuDAO.cs" />
+    <Compile Include="Dal\Entity\Page.cs" />
+    <Compile Include="Dal\Entity\TbMenu.cs" />
+    <Compile Include="Dal\Util\DBConn.cs" />
+    <Compile Include="Dal\Util\DBHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\TbMenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\MvcWeb.sql" />
     <Content Include="Global.asax" />
     <Content Include="static\css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\css\lib\bootstrap.min.css" />
     <Content Include="static\html\blank.html" />
     <Content Include="static\html\index.html" />
     <Content Include="static\html\vue.html" />
+    <Content Include="static\html\vuedata.html" />
     <Content Include="static\js\app\blank.js" />
     <Content Include="static\js\app\index.js" />
     <Content Include="static\js\app\vue.js" />
+    <Content Include="static\js\app\vuedata.js" />
     <Content Include="static\js\lib\angular.min.js" />
     <Content Include="static\js\lib\bootstrap.min.js" />
     <Content Include="static\js\lib\jquery.min.js" />
@@ -136,9 +147,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
     <Folder Include="static\css\app\" />
   </ItemGroup>
   <ItemGroup>
