@@ -1,4 +1,13 @@
 ﻿(function(win) {
+
+    Vue.config.errorHandler = function(err, vm, info) {
+        console.log("===Vue error info====");
+        console.log(err);
+        console.log(info);
+        console.log("=====================");
+        alert("程序无法运行");
+    };
+
     $(function() {
         var app = new Vue({
             el: "#divVue",
