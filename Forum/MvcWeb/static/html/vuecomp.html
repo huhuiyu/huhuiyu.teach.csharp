@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>web前端演示项目</title>
+        <!-- css导入要尽早，css导入是非阻塞的 -->
+        <link href="../css/lib/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container-fluid" id="divVue">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="h1 text-center text-danger">
+                        <div><simple v-bind:simple-data="simple"></simple></div>
+                        <div><simple2></simple2></div>
+                        <div>
+                            <compevent ref="ce1" v-on:click-me="clickEvent"></compevent>
+                            <span class="btn btn-primary" v-on:click="showComp">显示</span>
+                            <span class="btn btn-primary" v-on:click="hideComp">隐藏</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- js导入要尽晚 -->
+        <script src="../js/lib/jquery.min.js"></script>
+        <script src="../js/lib/bootstrap.min.js"></script>
+        <script src="../js/lib/vue.min.js"></script>
+        <script src="../js/lib/angular.min.js"></script>
+        <script type="x/template" id="my-template">
+        <div>模板文件写在script中</div>
+        </script>
+        <script src="../js/app/vuecomps.js"></script>
+        <script src="../js/app/vuecomp.js"></script>
+    </body>
+</html>
