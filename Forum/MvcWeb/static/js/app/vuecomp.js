@@ -1,5 +1,6 @@
 ﻿(function(win) {
     $(function() {
+        var showother = false;
         var vueapp = new Vue({
             el: "#divVue",
             data: {
@@ -23,6 +24,20 @@
                     this.$refs.ce1.callMe({
                         "show": false
                     });
+                },
+                showAlert: function() {
+                    var config = showother ? {
+                        title: "自定义标题",
+                        body: "内容" + new Date().getTime(),
+                        ok: "自定义按钮",
+                        cb: function() {
+                            console.log("回调事件");
+                        }
+                    } : {
+                        body: "内容" + new Date().getTime()
+                    };
+                    showother = !showother;
+                    this.$refs.dialog1.show(config);
                 }
             }
         });

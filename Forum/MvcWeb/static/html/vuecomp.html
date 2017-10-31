@@ -8,6 +8,7 @@
     </head>
     <body>
         <div class="container-fluid" id="divVue">
+            <alert-dialog ref="dialog1"></alert-dialog>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="h1 text-center text-danger">
@@ -17,11 +18,13 @@
                             <compevent ref="ce1" v-on:click-me="clickEvent"></compevent>
                             <span class="btn btn-primary" v-on:click="showComp">显示</span>
                             <span class="btn btn-primary" v-on:click="hideComp">隐藏</span>
+                            <span class="btn btn-primary" v-on:click="showAlert">确定对话框</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <!-- js导入要尽晚 -->
         <script src="../js/lib/jquery.min.js"></script>
         <script src="../js/lib/bootstrap.min.js"></script>
@@ -30,6 +33,7 @@
         <script type="x/template" id="my-template">
         <div>模板文件写在script中</div>
         </script>
+        <script src="../js/app/dialog.js"></script>
         <script src="../js/app/vuecomps.js"></script>
         <script src="../js/app/vuecomp.js"></script>
     </body>
