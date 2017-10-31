@@ -16,10 +16,6 @@
                 MenuList: [],
                 Menu: {}
             },
-            mounted: function() {
-                console.log("vue mounted...");
-                loadData();
-            },
             methods: {
                 addMenu: function() {
                     app.$data.loading = true;
@@ -41,12 +37,14 @@
         });
 
         function loadData() {
+            app.$data.loading = true;
             $.post("/DataMenu/Query", {}, function(data) {
-                console.log(data);
                 app.$data.loading = false;
                 app.$data.MenuList = data.MenuList;
             }, "json");
         }
+
+        loadData();
 
     });
 })(window);
