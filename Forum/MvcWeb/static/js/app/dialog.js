@@ -1,4 +1,5 @@
 (function() {
+    //确定对话框
     var dialog; //对话框对象
     var dialogcb; //关闭对话框的回掉
     var defaultInfo = {

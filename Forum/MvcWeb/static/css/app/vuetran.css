@@ -1,0 +1,43 @@
+.moveleft {
+    border: 1px solid red;
+    width: 100%;
+    background-color: yellow;
+}
+
+.moveleft-enter-active, .moveleft-leave-active {
+    position: absolute;
+}
+
+.moveleft-enter-active {
+    animation: moveleftin ease-in 2s;
+}
+
+.moveleft-leave-active {
+    animation: moveleftout ease-out 2s;
+}
+
+@keyframes moveleftout {
+    0% {
+        left: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        left: -100%;
+        opacity: 0;
+    }
+
+}
+
+@keyframes moveleftin {
+    0% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0px;
+        opacity: 1;
+    }
+
+}
