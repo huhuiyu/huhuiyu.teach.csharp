@@ -63,7 +63,11 @@
                                             <td>{{m.Title}}</td>
                                             <td>{{m.Url}}</td>
                                             <td>{{m.Info}}</td>
-                                            <td v-showdate="m.Created"></td>
+                                            <td>
+                                                <span v-showdate="{'date':m.Created}"></span>
+                                                <br />
+                                                <span v-showdate="{'date':m.Created,'format':'y-M-d w h:m:s'}"></span>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
