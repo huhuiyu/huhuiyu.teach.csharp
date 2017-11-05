@@ -10,9 +10,18 @@
         
         <div class="container-fluid" id="divVue">
             <div>
+                <div id="customDialog" style="display:none;">
+                    <h1>自定义元素对话框</h1>
+                    <div class="text-center">
+                        <span class="btn btn-primary" v-on:click="closeCustom">确定</span>
+                    </div>
+                </div>
+            </div>
+            <div>
                 <alert-dialog ref="dialog1"></alert-dialog>
                 <confirm-dialog ref="dialog2"></confirm-dialog>
                 <wait-dialog ref="dialog3"></wait-dialog>
+                <custom-dialog ref="dialog4"></custom-dialog>
             </div>
             <div class="row">
                 <div class="col-xs-12">
@@ -27,22 +36,23 @@
                             <span class="btn btn-primary" v-on:click="showAlertHide">确定对话框(自动关闭)</span>
                             <span class="btn btn-primary" v-on:click="showConfirm">确认对话框</span>
                             <span class="btn btn-primary" v-on:click="showWait">等待对话框</span>
+                            <span class="btn btn-primary" v-on:click="showCustom">自定义对话框</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- js导入要尽晚 -->
-        <script src="../js/lib/jquery.min.js"></script>
-        <script src="../js/lib/bootstrap.min.js"></script>
-        <script src="../js/lib/vue.min.js"></script>
-        <script src="../js/lib/angular.min.js"></script>
-        <script type="x/template" id="my-template">
-        <div>模板文件写在script中</div>
-        </script>
-        <script src="../js/app/dialog.js"></script>
-        <script src="../js/app/vuecomps.js"></script>
-        <script src="../js/app/vuecomp.js"></script>
-    </body>
+    
+    <!-- js导入要尽晚 -->
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
+    <script src="../js/lib/vue.min.js"></script>
+    <script src="../js/lib/angular.min.js"></script>
+    <script type="x/template" id="my-template">
+    <div>模板文件写在script中</div>
+    </script>
+    <script src="../js/app/dialog.js"></script>
+    <script src="../js/app/vuecomps.js"></script>
+    <script src="../js/app/vuecomp.js"></script>
+</body>
 </html>

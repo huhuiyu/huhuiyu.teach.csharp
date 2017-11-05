@@ -147,3 +147,57 @@
     });
 
 })();
+
+(function() {
+    //自定义对话框
+    var dialog; //对话框对象
+    var dialogcb; //对话框关闭回调
+    var customParent; //自定义元素的原始位置（父元素）
+    var customEl; //自定义元素
+
+    var defaultInfo = {
+        title: "自定义",
+        body: ""
+    };
+
+    Vue.component("customDialog", {
+        data: function() {
+            return {
+                title: defaultInfo.title,
+                body: defaultInfo.body
+            };
+        },
+        methods: {
+            show: function(dialoginfo) {
+                dialogcb = dialoginfo.cb ? dialoginfo.cb : null;
+                if (!dialoginfo.el) {
+                    return;
+                }
+                customEl = dialoginfo.el;
+                customParent = dialoginfo.el.parent();
+                this.title = dialoginfo.title ? dialoginfo.title : defaultInfo.title;
+                if (!dialog) { //初始化对话框
+                    dialog = $(this.$el);
+                    dialog.on("hidden.bs.modal", function() {
+                        customParent.append(customEl); //还原位置
+                        if (dialogcb) {
+                            dialogcb();
+                        }
+                    });
+                }
+                dialog.find(".modal-body").append(customEl);
+                customEl.show();
+                dialog.modal("show");
+            },
+            hide: function() {
+                if (dialog) {
+                    customEl.hide();
+                    dialog.modal("hide");
+                }
+            }
+
+        },
+        template: '<div class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" style="z-index: 2000;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">{{title}}</h4></div><div class="modal-body text-center"></div></div></div></div>'
+    });
+
+})();

@@ -87,8 +87,24 @@
                     });
                     setTimeout(function() {
                         vueapp.$refs.dialog3.hide();
-                    }, 2000)
+                    }, 2000);
+                },
+                showCustom: function() {
+                    this.$refs.dialog4.show({
+                        title: "登录",
+                        el: $("#customDialog"),
+                        cb: function() {
+                            vueapp.$refs.dialog1.show({
+                                body: "处理完毕"
+                            });
+                        }
+                    });
+
+                },
+                closeCustom: function() {
+                    this.$refs.dialog4.hide();
                 }
+
             }
         });
         console.log("vuecomp");
