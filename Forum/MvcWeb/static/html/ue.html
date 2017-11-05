@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>web前端演示项目</title>
+        <link href="../css/lib/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- blank.html -->
+        <div class="container-fluid" id="divVue">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="ueditor"></div>
+                    <div class="text-center">
+                        <span class="btn btn-primary" @click="getContent">获取内容</span>
+                        <span class="btn btn-primary" @click="setContent">设置内容</span>
+                    </div>
+                    <div v-html="content"></div>
+                    <div>{{content}}</div>
+                </div>
+            </div>
+        </div>
+        <!-- js导入要尽晚 -->
+        <script src="../js/lib/jquery.min.js"></script>
+        <script src="../js/lib/bootstrap.min.js"></script>
+        <script src="../js/lib/vue.min.js"></script>
+        <script src="../js/lib/angular.min.js"></script>
+        <script src="../ue/ueditor.config.js"></script>
+        <script src="../ue/ueditor.all.min.js"> </script>
+        <script src="../ue/lang/zh-cn/zh-cn.js"></script>
+        
+        <script src="../js/app/ue.js"></script>
+    </body>
+</html>
