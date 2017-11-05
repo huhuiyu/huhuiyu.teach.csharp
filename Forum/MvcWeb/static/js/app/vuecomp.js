@@ -49,6 +49,31 @@
                     setTimeout(function() {
                         vueapp.$refs.dialog1.hide();
                     }, 2000)
+                },
+                showConfirm: function() {
+                    var config = showother ? {
+                        title: "自定义确认对话框",
+                        yes: "是",
+                        no: "否",
+                        body: "内容" + new Date().getTime(),
+                        cby: function() {
+                            alert("yes");
+                        },
+                        cbn: function() {
+                            alert("no");
+                        }
+                    } : {
+                        body: "内容" + new Date().getTime(),
+                        cby: function() {
+                            console.log("yes");
+                        },
+                        cbn: function() {
+                            console.log("no");
+                        }
+                    };
+
+                    showother = !showother;
+                    this.$refs.dialog2.show(config);
                 }
             }
         });

@@ -7,8 +7,12 @@
         <link href="../css/lib/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
+        
         <div class="container-fluid" id="divVue">
-            <alert-dialog ref="dialog1"></alert-dialog>
+            <div>
+                 <alert-dialog ref="dialog1"></alert-dialog>
+                <confirm-dialog ref="dialog2"></confirm-dialog>
+            </div>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="h1 text-center text-danger">
@@ -20,6 +24,7 @@
                             <span class="btn btn-primary" v-on:click="hideComp">隐藏</span>
                             <span class="btn btn-primary" v-on:click="showAlert">确定对话框</span>
                             <span class="btn btn-primary" v-on:click="showAlertHide">确定对话框(自动关闭)</span>
+                            <span class="btn btn-primary" v-on:click="showConfirm">确认对话框</span>
                         </div>
                     </div>
                 </div>
