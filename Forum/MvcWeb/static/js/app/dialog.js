@@ -18,9 +18,7 @@
         },
         methods: {
             show: function(dialoginfo) {
-                if (dialoginfo.cb) {
-                    dialogcb = dialoginfo.cb;
-                }
+                dialogcb = dialoginfo.cb ? dialoginfo.cb : null;
                 this.title = dialoginfo.title ? dialoginfo.title : defaultInfo.title;
                 this.body = dialoginfo.body ? dialoginfo.body : defaultInfo.body;
                 this.ok = dialoginfo.ok ? dialoginfo.ok : defaultInfo.ok;
@@ -34,7 +32,13 @@
                     });
                 }
                 dialog.modal("show");
+            },
+            hide: function() {
+                if (dialog) {
+                    dialog.modal("hide");
+                }
             }
+
         },
         template: '<div class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1990;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">{{title}}</h4></div><div class="modal-body">{{body}}</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">{{ok}}</button></div></div></div></div>'
     });

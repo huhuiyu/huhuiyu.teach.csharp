@@ -38,6 +38,17 @@
                     };
                     showother = !showother;
                     this.$refs.dialog1.show(config);
+                },
+                showAlertHide: function() {
+                    this.$refs.dialog1.show({
+                        body: "自动隐藏对话框",
+                        cb: function() {
+                            console.log("自动隐藏");
+                        }
+                    });
+                    setTimeout(function() {
+                        vueapp.$refs.dialog1.hide();
+                    }, 2000)
                 }
             }
         });
