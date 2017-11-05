@@ -25,7 +25,6 @@
                 if (!dialog) { //初始化对话框
                     dialog = $(this.$el);
                     dialog.on("hidden.bs.modal", function() {
-                        console.log("dialog hidden...");
                         if (dialogcb) {
                             dialogcb();
                         }
@@ -100,6 +99,51 @@
 
         },
         template: '<div class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1990;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">{{title}}</h4></div><div class="modal-body">{{body}}</div><div class="modal-footer"><button type="button" class="btn btn-primary" @click="clickYes">{{yes}}</button><button type="button" class="btn btn-primary" @click="clickNo">{{no}}</button></div></div></div></div>'
+    });
+
+})();
+
+(function() {
+    //等待对话框
+    var dialog; //对话框对象
+    var dialogcb; //对话框关闭回调
+
+
+    var defaultInfo = {
+        title: "等待",
+        body: ""
+    };
+
+    Vue.component("waitDialog", {
+        data: function() {
+            return {
+                title: defaultInfo.title,
+                body: defaultInfo.body
+            };
+        },
+        methods: {
+            show: function(dialoginfo) {
+                dialogcb = dialoginfo.cb ? dialoginfo.cb : null;
+                this.title = dialoginfo.title ? dialoginfo.title : defaultInfo.title;
+                this.body = dialoginfo.body ? dialoginfo.body : defaultInfo.body;
+                if (!dialog) { //初始化对话框
+                    dialog = $(this.$el);
+                    dialog.on("hidden.bs.modal", function() {
+                        if (dialogcb) {
+                            dialogcb();
+                        }
+                    });
+                }
+                dialog.modal("show");
+            },
+            hide: function() {
+                if (dialog) {
+                    dialog.modal("hide");
+                }
+            }
+
+        },
+        template: '<div class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" style="z-index: 2000;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">{{title}}</h4></div><div class="modal-body text-center">{{body}}</div></div></div></div>'
     });
 
 })();

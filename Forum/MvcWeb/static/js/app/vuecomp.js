@@ -74,6 +74,20 @@
 
                     showother = !showother;
                     this.$refs.dialog2.show(config);
+                },
+                showWait: function() {
+                    this.$refs.dialog3.show({
+                        title: "登录",
+                        body: "数据处理中，请等待。。。",
+                        cb: function() {
+                            vueapp.$refs.dialog1.show({
+                                body: "处理完毕"
+                            });
+                        }
+                    });
+                    setTimeout(function() {
+                        vueapp.$refs.dialog3.hide();
+                    }, 2000)
                 }
             }
         });

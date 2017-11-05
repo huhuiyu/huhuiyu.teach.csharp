@@ -10,8 +10,9 @@
         
         <div class="container-fluid" id="divVue">
             <div>
-                 <alert-dialog ref="dialog1"></alert-dialog>
+                <alert-dialog ref="dialog1"></alert-dialog>
                 <confirm-dialog ref="dialog2"></confirm-dialog>
+                <wait-dialog ref="dialog3"></wait-dialog>
             </div>
             <div class="row">
                 <div class="col-xs-12">
@@ -25,6 +26,7 @@
                             <span class="btn btn-primary" v-on:click="showAlert">确定对话框</span>
                             <span class="btn btn-primary" v-on:click="showAlertHide">确定对话框(自动关闭)</span>
                             <span class="btn btn-primary" v-on:click="showConfirm">确认对话框</span>
+                            <span class="btn btn-primary" v-on:click="showWait">等待对话框</span>
                         </div>
                     </div>
                 </div>
